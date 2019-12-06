@@ -1,0 +1,19 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+main .container .row {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+main .container .card {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
