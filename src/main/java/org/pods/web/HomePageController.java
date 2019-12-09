@@ -22,9 +22,8 @@ public class HomePageController {
 
     @RequestMapping(value = "/", method = GET)
     public ModelAndView getHomePage() {
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView(HOME_PAGE);
 
-        modelAndView.setViewName(HOME_PAGE);
         modelAndView.addObject("apod", nasaService.getLastAPOD());
         modelAndView.addObject("wpod", wikipediaService.getLastWPOD());
 

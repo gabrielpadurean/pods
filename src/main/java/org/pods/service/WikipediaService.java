@@ -1,6 +1,6 @@
 package org.pods.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.pods.client.WikipediaClient;
 import org.pods.domain.WPOD;
@@ -20,7 +20,7 @@ public class WikipediaService {
 				.get();
 	}
 	
-	public Collection<WPOD> getLatestWPODs() {
+	public List<WPOD> getLatestWPODs() {
 		return wikipediaClient.getWPODs();
 	}
 }

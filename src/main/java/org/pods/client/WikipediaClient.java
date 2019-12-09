@@ -1,9 +1,8 @@
 package org.pods.client;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.pods.domain.WPOD;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,18 +25,18 @@ public class WikipediaClient {
 	
 	
     @HystrixCommand(fallbackMethod = "getDefaultWPODs")
-	public Collection<WPOD> getWPODs() {
+	public List<WPOD> getWPODs() {
 		return getDefaultWPODs();
 	}
     
-    public Collection<WPOD> getDefaultWPODs() {
+    public List<WPOD> getDefaultWPODs() {
     	WPOD wpod = new WPOD();
     	
     	wpod.setLink(defaultLink);
     	wpod.setDescription(defaultDescriptin);
     	wpod.setDate(LocalDate.now());
     	
-    	Set<WPOD> wpods = new HashSet<>();
+    	List<WPOD> wpods = new ArrayList<>();
     			
     	wpods.add(wpod);
     	

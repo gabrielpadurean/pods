@@ -45,6 +45,8 @@ public class NasaClient {
         apod.setTitle(defaultTitle);
         apod.setExplanation(defaultExplanation);
         apod.setHdurl(defaultUrl);
+        apod.setUrl(defaultUrl);
+        apod.setMediaType(APOD.IMAGE_MEDIA_TYPE);
         apod.setDate(LocalDate.now());
 
         return apod;

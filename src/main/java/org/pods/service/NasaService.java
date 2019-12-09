@@ -1,8 +1,8 @@
 package org.pods.service;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.pods.client.NasaClient;
 import org.pods.domain.APOD;
@@ -19,8 +19,8 @@ public class NasaService {
     	return nasaClient.getAPOD(LocalDate.now());
     }
     
-    public Collection<APOD> getLatestAPODs() {
-        Collection<APOD> apods = new HashSet<>();
+    public List<APOD> getLatestAPODs() {
+        List<APOD> apods = new ArrayList<>();
         LocalDate now = LocalDate.now();
 
         for (int i = 0; i < 10; i++) {

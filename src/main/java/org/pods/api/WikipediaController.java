@@ -16,7 +16,7 @@ public class WikipediaController {
 	private WikipediaService wikipediaService;
 	
 	
-	@RequestMapping(value = "/wpods", method = GET)
+	@RequestMapping(value = "/api/wpods", method = GET)
     public Collection<WPOD> getLatestWPODs() {
         return wikipediaService.getLatestWPODs();
     }

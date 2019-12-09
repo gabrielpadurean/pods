@@ -16,7 +16,7 @@ public class NasaController {
     private NasaService nasaService;
 
 
-    @RequestMapping(value = "/apods", method = GET)
+    @RequestMapping(value = "/api/apods", method = GET)
     public Collection<APOD> getLatestAPODs() {
         return nasaService.getLatestAPODs();
     }
