@@ -70,7 +70,7 @@
 							</div>
 						</div>
 					</div>
-					<c:if test="${apodsMeta.count % 3 == 0}">
+					<c:if test="${apodsMeta.count % 3 == 0 && !apodsMeta.last}">
 						</div>
 						<div class="row">
 					</c:if>
