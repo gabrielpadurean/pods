@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
@@ -43,6 +44,37 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<c:forEach var="apod" varStatus="apodsMeta" items="${apods}">
+					<div class="col s12 m6 l4">
+						<div class="card">
+							<div class="card-image">
+								<c:choose>
+									<c:when test="${apod.mediaType == 'video'}">
+									    <div class="video-container">
+											<iframe src="${apod.url}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<img src="${apod.url}"/>
+									</c:otherwise>
+								</c:choose>
+								<a class="btn-floating halfway-fab waves-effect waves-light red" title="Click to view large version"><i class="material-icons">add</i></a>
+							</div>
+							<div class="card-content">
+								<p>${fn:substring(apod.explanation,0, 200)}...</p>
+							</div>
+							<div class="card-action">
+								${apod.title}
+							</div>
+						</div>
+					</div>
+					<c:if test="${apodsMeta.count % 3 == 0}">
+						</div>
+						<div class="row">
+					</c:if>
+				</c:forEach>
 			</div>
 		</div>
 	</main>

@@ -23,7 +23,7 @@ public class NasaService {
         List<APOD> apods = new ArrayList<>();
         LocalDate now = LocalDate.now();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             apods.add(nasaClient.getAPOD(now.minusDays(i)));
         }
 
