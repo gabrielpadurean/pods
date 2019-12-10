@@ -21,7 +21,7 @@
 	<main>
 		<div class="container">
 			<div class="row">
-				<div class="col s6 m5 left">
+				<div class="col s12 m6 l6">
 					<div class="card">
 						<div class="card-image">
 							<c:choose>
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col s6 m5 right">
+				<div class="col s12 m6 l6">
 					<div class="card">
 						<div class="card-image">
 							<img src="${wpod.link}"/>
