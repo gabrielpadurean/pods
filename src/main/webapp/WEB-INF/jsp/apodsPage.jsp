@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
@@ -35,12 +36,14 @@
 									<img src="${apods[0].url}"/>
 								</c:otherwise>
 							</c:choose>
+							<span class="card-title">${apods[0].title}</span>
 						</div>
 						<div class="card-content">
 							<p>${apods[0].explanation}</p>
 						</div>
 						<div class="card-action">
-							${apods[0].title}
+							<fmt:parseDate value="${apods[0].date}" pattern="yyyy-MM-dd" var="apodDate" type="date"/>
+							Date: <fmt:formatDate pattern="dd MMMM, yyyy" value="${apodDate}"/>
 						</div>
 					</div>
 				</div>
@@ -60,13 +63,15 @@
 										<img src="${apod.url}"/>
 									</c:otherwise>
 								</c:choose>
+								<span class="card-title">${apod.title}</span>				
 								<a class="btn-floating halfway-fab waves-effect waves-light red" title="Click to view large version"><i class="material-icons">add</i></a>
 							</div>
 							<div class="card-content">
 								<p>${fn:substring(apod.explanation,0, 200)}...</p>
 							</div>
 							<div class="card-action">
-								${apod.title}
+								<fmt:parseDate value="${apod.date}" pattern="yyyy-MM-dd" var="apodDate" type="date"/>
+								Date: <fmt:formatDate pattern="dd MMMM, yyyy" value="${apodDate}"/>
 							</div>
 						</div>
 					</div>
