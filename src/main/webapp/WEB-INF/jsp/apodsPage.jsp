@@ -24,7 +24,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col s12">
-					<div class="card">
+					<div class="card hoverable">
 						<div class="card-image">
 							<c:choose>
 								<c:when test="${apods[0].mediaType == 'video'}">
@@ -48,10 +48,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row smallCards">
 				<c:forEach var="apod" varStatus="apodsMeta" items="${apods}">
-					<div class="col s12 m6 l4">
-						<div class="card">
+					<div class="col s12 s6 l4">
+						<div class="card large hoverable">
 							<div class="card-image">
 								<c:choose>
 									<c:when test="${apod.mediaType == 'video'}">
@@ -76,8 +76,7 @@
 						</div>
 					</div>
 					<c:if test="${apodsMeta.count % 3 == 0 && !apodsMeta.last}">
-						</div>
-						<div class="row">
+						<div class="clear"></div>
 					</c:if>
 				</c:forEach>
 			</div>

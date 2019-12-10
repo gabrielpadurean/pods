@@ -21,8 +21,8 @@
 	<main>
 		<div class="container">
 			<div class="row">
-				<div class="col s12 m6 l6">
-					<div class="card">
+				<div class="col s12">
+					<div class="card hoverable">
 						<div class="card-image">
 							<c:choose>
 								<c:when test="${apod.mediaType == 'video'}">
@@ -40,8 +40,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col s12 m6 l6">
-					<div class="card">
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="card hoverable">
 						<div class="card-image">
 							<img src="${wpod.link}"/>
 						</div>

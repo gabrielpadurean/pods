@@ -17,3 +17,20 @@ main .container .card {
 	margin-bottom: 0px;
 	margin-top: 0px;
 }
+
+div.clear {
+	clear: both;
+}
+
+main .container .row.smallCards .col {
+	padding-bottom: 20px;
+}
+
+main .container .row.smallCards {
+	margin-bottom: 0px;
+}
+
+main .container .row.smallCards .btn-floating.halfway-fab {
+	right: 15px;
+	bottom: 15px;
+}
