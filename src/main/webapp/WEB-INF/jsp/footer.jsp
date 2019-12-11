@@ -4,7 +4,7 @@
 			<div class="col l6 s12 left">
 				<h5 class="white-text">Pods</h5>
 				<p class="grey-text text-lighten-4">
-					This Pods website contains collections with the latest astronomical
+					This Pods website contains collections with the latest astronomy
 					pictures of the day from <a href="https://www.nasa.gov/"
 						target="_blank" class="grey-text text-lighten-3"><i>NASA</i></a>
 					and the latest pictures of the day from <a

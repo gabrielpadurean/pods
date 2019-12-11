@@ -3,7 +3,7 @@ pods
 
 # Description
 Basic Spring Boot application based on Hystrix for pods (apod and wpod) that display fun images from NASA and Wikipedia.  
-The term `apod` means astronomical picture of the day and the term `wpod` means wikipedia picture of the day.  
+The term `apod` means astronomy picture of the day and the term `wpod` means wikipedia picture of the day.  
 
 ## Package structure
 Application consists of four main packages:
