@@ -20,32 +20,21 @@
 	
 	<main>
 		<div class="container">
-			<div class="row">
-				<div class="col s12">
+			<div class="row smallCards">
+				<div class="col s12 m6 l6">
 					<div class="card hoverable">
 						<div class="card-image">
-							<c:choose>
-								<c:when test="${apod.mediaType == 'video'}">
-								    <div class="video-container">
-										<iframe width="510" height="300" src="${apod.url}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									</div>
-								</c:when>
-								<c:otherwise>
-									<img src="${apod.url}"/>
-								</c:otherwise>
-							</c:choose>
+							<img src="/images/apodLogo.png"/>
 						</div>
 						<div class="card-action">
-							<a href="/apods">View all astronomical pictures of the day</a>
+							<a href="/apods">View all astronomy pictures of the day</a>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col s12">
+				<div class="col s12 m6 l6">
 					<div class="card hoverable">
 						<div class="card-image">
-							<img src="${wpod.link}"/>
+							<img src="/images/wpodLogo.png"/>
 						</div>
 						<div class="card-action">
 							<a href="/wpods">View all wikipedia pictures of the day</a>
