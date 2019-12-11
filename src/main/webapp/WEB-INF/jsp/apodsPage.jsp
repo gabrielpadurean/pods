@@ -12,7 +12,12 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.mainImage').materialbox();
+		});
+	</script>
+	
     <title>APODs</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -33,7 +38,7 @@
 									</div>
 								</c:when>
 								<c:otherwise>
-									<img src="${apods[0].url}"/>
+									<img class="mainImage" src="${apods[0].url}"/>
 								</c:otherwise>
 							</c:choose>
 							<span class="card-title">${apods[0].title}</span>
