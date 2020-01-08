@@ -35,6 +35,10 @@ main .container .row.smallCards .btn-floating.halfway-fab {
 	bottom: 15px;
 }
 
-main img.mainImage {
+main img.materialboxImage {
 	cursor: pointer;
+}
+
+main p.hidden {
+	display: none;
 }
