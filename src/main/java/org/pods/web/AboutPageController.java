@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomePageController {
-    private final static String HOME_PAGE = "homePage";
+public class AboutPageController {
+    private final static String ABOUT_PAGE = "aboutPage";
 
 
-    @RequestMapping(value = "/", method = GET)
-    public ModelAndView getHomePage() {
-        return new ModelAndView(HOME_PAGE);
+    @RequestMapping(value = "/about", method = GET)
+    public ModelAndView getAboutPage() {
+        return new ModelAndView(ABOUT_PAGE);
     }
 }

@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
 
-    <title>Pods</title>
+    <title>About</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -16,30 +16,6 @@
 	<jsp:include page="header.jsp"/>
 	
 	<main>
-		<div class="container">
-			<div class="row smallCards">
-				<div class="col s12 m6 l6">
-					<div class="card hoverable">
-						<div class="card-image">
-							<img src="/images/apodLogo.png"/>
-						</div>
-						<div class="card-action">
-							<a href="/apods">View all astronomy pictures of the day</a>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m6 l6">
-					<div class="card hoverable">
-						<div class="card-image">
-							<img src="/images/wpodLogo.png"/>
-						</div>
-						<div class="card-action">
-							<a href="/wpods">View all wikipedia pictures of the day</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</main>
 	
 	<jsp:include page="footer.jsp"/>

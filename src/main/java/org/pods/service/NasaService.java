@@ -15,10 +15,6 @@ public class NasaService {
     private NasaClient nasaClient;
 
 
-    public APOD getLastAPOD() {
-    	return nasaClient.getAPOD(LocalDate.now());
-    }
-    
     public List<APOD> getLatestAPODs() {
         List<APOD> apods = new ArrayList<>();
         LocalDate now = LocalDate.now();

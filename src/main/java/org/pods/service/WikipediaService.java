@@ -13,13 +13,6 @@ public class WikipediaService {
 	private WikipediaClient wikipediaClient;
 	
 	
-	public WPOD getLastWPOD() {
-		return wikipediaClient.getWPODs()
-				.stream()
-				.findFirst()
-				.get();
-	}
-	
 	public List<WPOD> getLatestWPODs() {
 		return wikipediaClient.getWPODs();
 	}

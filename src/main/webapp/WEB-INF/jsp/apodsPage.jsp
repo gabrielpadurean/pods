@@ -19,15 +19,17 @@
 
 		function viewLargeVersion(elem) {
 			var newTitle = $(elem).parent().find('.card-title').html();
-			var newDate = $(elem).parent().parent().find('.card-action').html();;
-			var newContent = $(elem).parent().parent().find('.card-content .hidden').html();;
-			var newMedia = $(elem).parent().find('.card-media').attr('src');
-			
+			var newDate = $(elem).parent().parent().find('.card-action').html();
+			var newContent = $(elem).parent().parent().find('.card-content .hidden').html();
+			var newMedia = $(elem).parent().children()[0].outerHTML;
+
 			$('.bigCard .card-title').html(newTitle);
 			$('.bigCard .card-content p').html(newContent);
 			$('.bigCard .card-action').html(newDate);
-			$('.bigCard .card-media').attr("src", newMedia);
-
+			$('.bigCard .card-image').children().first().replaceWith(newMedia);
+			
+			$('.bigCard .materialboxImage').materialbox();
+			
 			$(document).scrollTop(0);
 		};
 	</script>
@@ -48,11 +50,11 @@
 							<c:choose>
 								<c:when test="${apods[0].mediaType == 'video'}">
 								    <div class="video-container">
-										<iframe src="${apods[0].url}" class="card-media" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										<iframe src="${apods[0].url}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 									</div>
 								</c:when>
 								<c:otherwise>
-									<img class="card-media materialboxImage" title="Click to enlarge image" src="${apods[0].url}"/>
+									<img class="materialboxImage" title="Click to enlarge image" src="${apods[0].url}"/>
 								</c:otherwise>
 							</c:choose>
 							<span class="card-title">${apods[0].title}</span>
@@ -75,11 +77,11 @@
 								<c:choose>
 									<c:when test="${apod.mediaType == 'video'}">
 									    <div class="video-container">
-											<iframe src="${apod.url}" class="card-media" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+											<iframe src="${apod.url}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 										</div>
 									</c:when>
 									<c:otherwise>
-										<img class="card-media materialboxImage" title="Click to enlarge image" src="${apod.url}"/>
+										<img class="materialboxImage" title="Click to enlarge image" src="${apod.url}"/>
 									</c:otherwise>
 								</c:choose>
 								<span class="card-title">${apod.title}</span>				
