@@ -1,6 +1,7 @@
 package org.pods.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.pods.client.WikipediaClient;
 import org.pods.domain.WPOD;
@@ -14,6 +15,11 @@ public class WikipediaService {
 	
 	
 	public List<WPOD> getLatestWPODs() {
-		return wikipediaClient.getWPODs();
+		return wikipediaClient
+				.getWPODs()
+				.stream()
+				.sorted((wpod1, wpod2) -> (-1 * wpod1.getDate().compareTo(wpod2.getDate())))
+				.limit(9)
+				.collect(Collectors.toList());
 	}
 }

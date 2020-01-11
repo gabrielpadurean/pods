@@ -2,7 +2,7 @@ package org.pods.api;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.pods.domain.APOD;
 import org.pods.service.NasaService;
@@ -17,7 +17,7 @@ public class NasaController {
 
 
     @RequestMapping(value = "/api/apods", method = GET)
-    public Collection<APOD> getLatestAPODs() {
+    public List<APOD> getLatestAPODs() {
         return nasaService.getLatestAPODs();
     }
 }

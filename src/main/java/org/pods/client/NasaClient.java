@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.pods.domain.APOD;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -13,6 +15,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Component
 public class NasaClient {
+	private static final Logger LOG = LoggerFactory.getLogger(NasaClient.class);
+
     private static final DateTimeFormatter NASA_APOD_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Value("${nasa.apiKey}")
@@ -36,7 +40,13 @@ public class NasaClient {
 
     @HystrixCommand(fallbackMethod = "getDefaultAPOD")
     public APOD getAPOD(LocalDate localDate) {
-        return restTemplate.getForObject(apodUrl, APOD.class, localDate.format(NASA_APOD_DATE_FORMATTER), apiKey);
+        try {
+        	return restTemplate.getForObject(apodUrl, APOD.class, localDate.format(NASA_APOD_DATE_FORMATTER), apiKey);
+        } catch (Exception e) {
+        	LOG.error("Exception while calling the NASA endpoint");
+        	
+        	throw e;
+        }
     }
 
     public APOD getDefaultAPOD(LocalDate localDate) {

@@ -2,7 +2,7 @@ package org.pods.api;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.pods.domain.WPOD;
 import org.pods.service.WikipediaService;
@@ -17,7 +17,7 @@ public class WikipediaController {
 	
 	
 	@RequestMapping(value = "/api/wpods", method = GET)
-    public Collection<WPOD> getLatestWPODs() {
+    public List<WPOD> getLatestWPODs() {
         return wikipediaService.getLatestWPODs();
     }
 }
