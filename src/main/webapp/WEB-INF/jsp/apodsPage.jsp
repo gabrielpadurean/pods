@@ -64,7 +64,11 @@
 						</div>
 						<div class="card-action">
 							<fmt:parseDate value="${apods[0].date}" pattern="yyyy-MM-dd" var="apodDate" type="date"/>
-							Date: <fmt:formatDate pattern="dd MMMM, yyyy" value="${apodDate}"/>
+							<div class="left"><fmt:formatDate pattern="dd MMMM, yyyy" value="${apodDate}"/></div>
+							<c:if test="${apod.copyright != null}">
+								<div class="right">Credit: ${apods[0].copyright}</div>
+							</c:if>
+							<div class="clear"></div>
 						</div>
 					</div>
 				</div>
@@ -93,7 +97,11 @@
 							</div>
 							<div class="card-action">
 								<fmt:parseDate value="${apod.date}" pattern="yyyy-MM-dd" var="apodDate" type="date"/>
-								Date: <fmt:formatDate pattern="dd MMMM, yyyy" value="${apodDate}"/>
+								<div class="left"><fmt:formatDate pattern="dd MMMM, yyyy" value="${apodDate}"/></div>
+								<c:if test="${apod.copyright != null}">								
+									<div class="right">Credit: ${apod.copyright}</div>
+								</c:if>
+								<div class="clear"></div>
 							</div>
 						</div>
 					</div>

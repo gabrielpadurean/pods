@@ -15,6 +15,7 @@ public class APOD {
 	
     private String title;
     private String explanation;
+    private String copyright;
     private LocalDate date;
     private String url;
     private String hdurl;
@@ -69,5 +70,13 @@ public class APOD {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getCopyright() {
+		return copyright;
+	}
+
+	public void setCopyright(String copyright) {
+		this.copyright = copyright;
 	}
 }
