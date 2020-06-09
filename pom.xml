@@ -7,7 +7,7 @@
 	<artifactId>pods</artifactId>
 	<version>1.0.1</version>
 	<name>pods</name>
-	<description>Basic Spring Boot application based on Hystrix for pods (apod and wpod) that display fun images from NASA and Wikipedia.</description>
+	<description>Basic Spring Boot application for pods (apod and wpod) that display fun images from NASA and Wikipedia.</description>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -17,8 +17,6 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <netflix.hystrix.version>2.0.2.RELEASE</netflix.hystrix.version>
-        <netflix.hystrix.dashboard.version>1.4.6.RELEASE</netflix.hystrix.dashboard.version>
         <rome.version>1.12.2</rome.version>
         <jsoup.version>1.12.1</jsoup.version>
     </properties>
@@ -42,18 +40,6 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-            <version>${netflix.hystrix.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
-            <version>${netflix.hystrix.dashboard.version}</version>
         </dependency>
 
 		<dependency>

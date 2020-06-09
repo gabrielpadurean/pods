@@ -1,9 +1,8 @@
 package org.pods.client;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.SyndFeedInput;
@@ -29,39 +27,16 @@ public class WikipediaClient {
 	@Value("${wikipedia.wpod.url}")
 	private String wpodUrl;
 	
-	@Value("${wikipedia.wpod.default.link}")
-    private String defaultLink;
-
-    @Value("${wikipedia.wpod.default.description}")
-    private String defaultDescriptin;
-    
 	
-    @HystrixCommand(fallbackMethod = "getDefaultWPODs")
 	public List<WPOD> getWPODs() {
-		return readWikipediaRSSFeed();
-	}
-    
-    public List<WPOD> getDefaultWPODs() {
-    	WPOD wpod = new WPOD();
-    	
-    	wpod.setLink(defaultLink);
-    	wpod.setDescription(defaultDescriptin);
-    	wpod.setDate(LocalDate.now());
-    	
-    	List<WPOD> wpods = new ArrayList<>();
-    			
-    	wpods.add(wpod);
-    	
-		return wpods;
-    }
-    
-    private List<WPOD> readWikipediaRSSFeed() {
-    	try {
+		List<WPOD> wpods = Collections.emptyList();
+		
+		try {
 			SyndFeed syndFeed = new SyndFeedInput().build(new XmlReader(new URL(wpodUrl)));
 	
 			List<SyndEntry> entries = syndFeed.getEntries();
 			
-			return entries
+			wpods = entries
 					.stream()
 					.map(syndEntry -> {
 						Date date = syndEntry.getPublishedDate();
@@ -79,10 +54,10 @@ public class WikipediaClient {
 					.collect(Collectors.toList());
     	} catch(Exception e) {
     		LOG.error("Exception while reading the Wikipedia RSS feed", e);
-    		
-    		throw new RuntimeException(e);
     	}
-    }
+		
+		return wpods;
+	}
     
     /**
      * The actual description is inside a "div" with the "description" class.
